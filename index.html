@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra KENFACK | Ingénieure Systèmes & Réseaux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Bleu professionnel moderne */
+            --secondary-color: #6c757d; /* Gris neutre pour contraste */
+            --accent-color: #28a745; /* Vert pour accent positif */
+            --bg-light: #f8f9fa; /* Fond clair pour lisibilité */
+            --text-dark: #212529; /* Texte sombre pour contraste élevé */
+            --text-light: #ffffff; /* Texte clair pour headers */
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            margin: 0; 
+            background: var(--bg-light); 
+            font-size: 16px; /* Taille de police de base pour meilleure lisibilité */
+        }
+        header { 
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
+            color: var(--text-light); 
+            padding: 4rem 1rem; 
+            text-align: center; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ombre pour profondeur */
+        }
+        header h1, header p { 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Ombre pour améliorer la lisibilité sur le gradient */
+        }
+        .container { 
+            max-width: 1200px; /* Largeur augmentée pour plus d'espace */
+            margin: auto; 
+            padding: 20px; 
+        }
+        .profile-links { 
+            margin-top: 20px; 
+        }
+        .profile-links a { 
+            color: var(--text-light); 
+            margin: 0 20px; 
+            text-decoration: none; 
+            font-size: 1.8rem; 
+            transition: all 0.3s ease; /* Transition fluide */
+            opacity: 0.8; 
+        }
+        .profile-links a:hover { 
+            color: var(--accent-color); 
+            opacity: 1; 
+            transform: scale(1.1); /* Effet de zoom au survol */
+        }
+        
+        .project-card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 15px; /* Bordures plus arrondies pour modernité */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre plus prononcée pour visibilité */
+            margin-bottom: 60px; 
+            border-left: 8px solid var(--accent-color); 
+            transition: transform 0.3s ease; /* Animation au survol */
+        }
+        .project-card:hover { 
+            transform: translateY(-5px); /* Léger soulèvement au survol */
+        }
+        .project-card.jas { 
+            border-left-color: var(--secondary-color); 
+        }
+        .project-card.ia { 
+            border-left-color: var(--primary-color); /* Couleur pour le projet IA */
+        }
+        
+        h1, h2, h3 { 
+            color: var(--primary-color); 
+            margin-top: 0; 
+            font-weight: 700; /* Police plus épaisse pour titres */
+        }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        .tag { 
+            background: #e9ecef; 
+            color: var(--text-dark); 
+            padding: 8px 16px; 
+            border-radius: 25px; 
+            font-size: 0.9rem; 
+            margin-right: 10px; 
+            font-weight: 600; 
+            display: inline-block; 
+            margin-bottom: 15px; 
+            border: 1px solid #dee2e6; /* Bordure subtile pour définition */
+        }
+        .tag-tech { 
+            background: var(--accent-color); 
+            color: white; 
+        }
+        .tag-jas { 
+            background: var(--secondary-color); 
+            color: white; 
+        }
+        .tag-ia { 
+            background: var(--primary-color); 
+            color: white; 
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 30px 0; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Ombre légère pour table */
+        }
+        th, td { 
+            border: 1px solid #dee2e6; 
+            padding: 18px; 
+            text-align: left; 
+        }
+        th { 
+            background-color: #f8f9fa; 
+            font-weight: 700; 
+            color: var(--text-dark); 
+        }
+        .total-row { 
+            font-weight: bold; 
+            background-color: #fff3cd; /* Jaune pâle pour mise en évidence */
+            color: #856404; 
+        }
+        
+        .methodology { 
+            background: #e3f2fd; /* Bleu très clair pour contraste */
+            padding: 25px; 
+            border-radius: 10px; 
+            border-left: 5px solid var(--primary-color); 
+            font-style: italic; 
+            margin: 30px 0; 
+            font-size: 1.1rem; 
+        }
+        .btn-pdf { 
+            display: inline-block; 
+            background: var(--primary-color); 
+            color: white; 
+            padding: 12px 25px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            margin-top: 20px; 
+            font-weight: bold; 
+            transition: background 0.3s ease; 
+            box-shadow: 0 4px 8px rgba(0,123,255,0.3); /* Ombre colorée pour bouton */
+        }
+        .btn-pdf:hover { 
+            background: #0056b3; /* Bleu plus foncé au survol */
+            box-shadow: 0 6px 12px rgba(0,123,255,0.4); 
+        }
+        .footer { 
+            text-align: center; 
+            padding: 60px; 
+            color: #6c757d; 
+            background: white; 
+            border-top: 1px solid #dee2e6; 
+            font-size: 0.9rem; 
+        }
+        
+        /* Améliorations pour accessibilité et visibilité */
+        @media (max-width: 768px) { 
+            .container { padding: 10px; }
+            header { padding: 2rem 1rem; }
+            .project-card { padding: 25px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sandra KENFACK DONGMO</h1>
+    <p>Ingénieure Systèmes et Réseaux | Experte en Infrastructure & Cybersécurité</p>
+    <div class="profile-links">
+        <a href="https://www.linkedin.com/in/sandra-kenfack-dongmo-48b8411a6" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Sandrakenfack" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+</header>
+
+<div class="container">
+<section id="monitoring-stack">
+    <div class="project-card ia">
+        <h2><i class="fas fa-chart-line"></i> Monitoring d'Infrastructure Linux</h2>
+        <p><strong>Observabilité :</strong> Supervision en temps réel (Prometheus & Grafana).</p>
+        
+        <div style="margin-bottom: 15px;">
+            <span class="tag tag-ia">Prometheus</span>
+            <span class="tag tag-ia">Grafana</span>
+            <span class="tag tag-ia">Linux</span>
+        </div>
+
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 15px 0;">
+            <div style="flex: 1; min-width: 250px;">
+                <img src="dashboard-preview.png" alt="Dashboard" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+            </div>
+
+            <div style="flex: 1; min-width: 250px;">
+                <video width="100%" controls style="border-radius: 8px; background-color: #000;">
+                    <source src="monitoring-demo-live.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="methodology" style="margin: 10px 0; padding: 10px;">
+            "L'observabilité transforme les données en décisions stratégiques."
+        </div>
+
+        <a href="https://github.com/Sandrakenfack/monitoring-stack-prometheus-grafana" class="btn-pdf" target="_blank" style="background: #24292e;">
+            <i class="fab fa-github"></i> Voir le code source
+        </a>
+    </div>
+</section>
+<section id="scanwise-ai">
+    <div class="project-card biometrie" style="border-left: 8px solid #38bdf8; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 60px;">
+        <h2><i class="fas fa-fingerprint"></i> ScanWise AI - Pointage Biométrique</h2>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+            
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <img src="Dashbord connexion.png" alt="Dashboard Connexion" style="width: 100%; border-radius: 10px; border: 1px solid #ddd;">
+                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 8px;">Interface de Connexion</p>
+            </div>
+
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <img src="Dashbord Biometrique.png" alt="Dashboard Biométrique" style="width: 100%; border-radius: 10px; border: 1px solid #ddd;">
+                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 8px;">Analyse Biométrique</p>
+            </div>
+
+            <div style="flex-basis: 100%; text-align: center; margin-top: 20px;">
+                <video controls autoplay muted playsinline width="100%" style="border-radius: 10px; border: 1px solid #38bdf8; background: #000;">
+                    <source src="video project.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 8px; font-weight: bold;">Démonstration vidéo du cycle de pointage</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="scanwise-aws">
+    <div class="project-card biometrie" style="border-left: 8px solid #232f3e; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 60px;">
+        <h2><i class="fas fa-cloud"></i> ScanWise AWS - Infrastructure & Terraform</h2>
+        
+        <p style="margin-top: 10px; line-height: 1.6;">
+            <strong>Automatisation Cloud :</strong> Conception et déploiement d'une architecture sécurisée sur <strong>AWS</strong> en utilisant <strong>Terraform</strong>. Ce projet automatise la création d'un VPC et d'une instance EC2 pour un déploiement fiable et reproductible.
+        </p>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; align-items: flex-start;">
+            
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; border-radius: 10px; background: #fcfcfc; overflow: hidden;">
+                    <img src="architecture.png" alt="Architecture AWS" style="max-width: 95%; max-height: 95%; object-fit: contain;">
+                </div>
+                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 10px; font-weight: 500;">Schéma de l'Architecture Cloud</p>
+            </div>
+
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; border-radius: 10px; background: #fcfcfc; overflow: hidden;">
+                    <img src="dashbord.png" alt="Dashboard ScanWise" style="max-width: 95%; max-height: 95%; object-fit: contain;">
+                </div>
+                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 10px; font-weight: 500;">Interface de Gestion (Dashboard)</p>
+            </div>
+
+            <div style="flex-basis: 100%; text-align: center; margin-top: 30px;">
+                <video controls muted playsinline width="100%" style="border-radius: 10px; border: 1px solid #232f3e; background: #000;">
+                    <source src="demo.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                <p style="font-size: 0.85rem; color: #6c757d; margin-top: 8px; font-weight: bold;">Démonstration du déploiement automatisé avec Terraform</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://github.com/sandrakenfack/aws-terraform-scanwise" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #232f3e; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                <i class="fab fa-github"></i> Voir le code source sur GitHub
+            </a>
+        </div>
+    </div>
+</section>
+</section>
+</section>
+
+<section id="devops-automation">
+    <div class="project-card" style="border-left: 8px solid #00d4ff; background: #0b0e14; color: #e0e0e0; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 60px;">
+        <h2 style="color: #00d4ff;"><i class="fas fa-terminal"></i> Sandra DevOps V2.0 : Automation Totale</h2>
+        
+        <div style="display: flex; gap: 30px; flex-wrap: wrap; align-items: center; margin-top: 20px;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="devops-v2.png" alt="Sandra DevOps V2.0" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); border: 1px solid #333;">
+            </div>
+
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: #ffffff;">Provisioning & Configuration as Code</h3>
+                <p>Ce projet démontre une maîtrise complète du cycle de vie d'une infrastructure moderne :</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-check-circle" style="color: #00d4ff;"></i> <strong>Provisioning :</strong> Terraform pour l'infra AWS (Region Paris).</li>
+                    <li><i class="fas fa-check-circle" style="color: #00d4ff;"></i> <strong>Configuration :</strong> Ansible pour l'automatisation logicielle.</li>
+                    <li><i class="fas fa-check-circle" style="color: #00d4ff;"></i> <strong>Status :</strong> Système déployé et 100% opérationnel.</li>
+                </ul>
+                
+                <div style="margin-top: 20px;">
+                    <span class="tag" style="background: #232f3e; color: #ff9900; border: 1px solid #ff9900;">AWS Cloud</span>
+                    <span class="tag" style="background: #5c4ee5; color: white;">Terraform</span>
+                    <span class="tag" style="background: #000000; color: #EE0000; border: 1px solid #EE0000;">Ansible</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.linkedin.com/in/sandra-kenfack-dongmo-48b8411a6" target="_blank" class="btn-pdf" style="background: #0077b5; border: none;">
+                <i class="fab fa-linkedin"></i> Accéder au Profil LinkedIn
+            </a>
+        </div>
+    </div>
+</section>
+    <section id="videosurveillance">
+        <div class="project-card">
+            <h2><i class="fas fa-shield-alt"></i> Système de Vidéosurveillance IP - ISA-DOUALA</h2>
+            <p><strong>Conception :</strong> Architecture de sécurité intelligente pour le campus.</p>
+            <div>
+                <span class="tag tag-tech">Réseaux IP</span>
+                <span class="tag tag-tech">ARCHICAD 3D</span>
+                <span class="tag tag-tech">Gestion de Projet</span>
+            </div>
+
+            <h3>Ingénierie Financière & Technique</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Poste</th>
+                        <th>Détails</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Matériel Vidéo</td><td>NVR Hikvision & Caméras Visortech</td><td>2 372 000 F</td></tr>
+                    <tr><td>Infrastructure</td><td>Onduleur, Baie 4U & Câblage SFTP</td><td>245 000 F</td></tr>
+                    <tr><td>Expertise</td><td>Configuration & Audit de sécurité</td><td>700 000 F</td></tr>
+                    <tr class="total-row">
+                        <td colspan="2">INVESTISSEMENT GLOBAL (TTC)</td>
+                        <td>3 938 000 F CFA</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="methodology">
+                "Allier l'esthétique du cahier des charges à la rigueur des tests d'implémentation pour garantir un plaisir incessant au maître d'ouvrage."
+            </div>
+            <a href="projet2.pdf" class="btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Lire projet</a>
+        </div>
+    </section>
+
+    <section id="assistant-ia">
+        <div class="project-card ia">
+            <h2><i class="fas fa-robot"></i> Installation d'un Assistant IA</h2>
+            <p><strong>Démonstration Vidéo :</strong> Mise en place et fonctionnement de l'assistant virtuel.</p>
+            <div>
+                <span class="tag tag-ia">Intelligence Artificielle</span>
+                <span class="tag tag-ia">Automatisation</span>
+                <span class="tag tag-ia">Vidéo MP4</span>
+            </div>
+
+            <div class="methodology">
+                "Visualisez l'implémentation concrète et l'interaction avec l'IA en temps réel."
+            </div>
+
+            <a href="projet4.mp4" class="btn-pdf" target="_blank">
+                <i class="fas fa-play-circle"></i> Regarder la vidéo
+            </a>
+        </div>
+    </section>
+    <section id="jas-consulting">
+        <div class="project-card jas">
+            <h2><i class="fas fa-server"></i> Migration de l'Infrastructure IT - JAS Consulting</h2>
+            <p><strong>Projet de mise en situation :</strong> Migration complète du Groupement Mutualiste.</p>
+            <div>
+                <span class="tag tag-jas">Audit & Conseil</span>
+                <span class="tag tag-jas">PCA/PRA</span>
+                <span class="tag tag-jas">Cloud Computing</span>
+                <span class="tag tag-jas">Cybersécurité</span>
+            </div>
+
+            <h3>Résumé du Projet</h3>
+            <p>Réalisation d'un dossier technique complet pour la migration de l'infrastructure IT. Ce projet inclut une veille technologique active, l'évaluation de solutions innovantes (IA et Automatisation) et la sécurisation des données sensibles.</p>
+
+            <ul>
+                <li><strong>Gestion de la continuité :</strong> Mise à jour et test du Plan de Continuité d'Activité (PCA) et de Reprise d'Activité (PRA).</li>
+                <li><strong>Sécurité :</strong> Planification de tests de pénétration annuels et audits de robustesse.</li>
+                <li><strong>Gouvernance :</strong> Pilotage de la clôture officielle du projet et validation des obligations contractuelles.</li>
+            </ul>
+
+            <div class="methodology">
+                "La réussite d'une migration réside dans l'anticipation des risques et la mise en place d'une résilience optimale face aux incidents majeurs."
+            </div>
+            <a href="projet1.pdf" class="btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Lire projet</a>
+        </div>
+    
+    <section id="ad-dns-config">
+        <div class="project-card">
+            <h2><i class="fas fa-server"></i> Configuration du Serveur AD et DNS</h2>
+            <p><strong>Projet Technique :</strong> Mise en place et configuration d'un serveur Active Directory et DNS.</p>
+            <div>
+                <span class="tag tag-tech">Systèmes & Réseaux</span>
+                <span class="tag tag-tech">Active Directory</span>
+                <span class="tag tag-tech">DNS</span>
+            </div>
+
+            <h3>Résumé du Projet</h3>
+            <p>Configuration complète d'un serveur Active Directory (AD) et d'un serveur DNS pour une infrastructure réseau sécurisée. Ce projet couvre l'installation, la configuration et les tests de fonctionnement.</p>
+
+            <ul>
+                <li><strong>Configuration AD :</strong> Changement du nom de la machine, attribution d'adresse IP, installation et promotion du contrôleur de domaine.</li>
+                <li><strong>Configuration DNS :</strong> Intégration dans le domaine, installation du rôle DNS et création des zones directes et inversées.</li>
+                <li><strong>Tests et Validation :</strong> Vérification du domaine et des transferts de zone.</li>
+            </ul>
+
+            <div class="methodology">
+                "La configuration précise des serveurs AD et DNS est essentielle pour une infrastructure réseau fiable et sécurisée."
+            </div>
+            <a href="projet3.pdf" class="btn-pdf" target="_blank"><i class="fas fa-file-pdf"></i> Lire projet</a>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Sandra KENFACK DONGMO - Déployé via GitHub Pages</p>
+</div>
+
+</body>
+</html>
