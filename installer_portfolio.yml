@@ -1,0 +1,20 @@
+---
+- name: Installation du Portfolio
+  hosts: all
+  become: yes
+  tasks:
+    - name: Installer Apache
+      apt: { name: apache2, state: present, update_cache: yes }
+
+    - name: Créer la page Web personnalisée
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+          <body style="background:#0f172a; color:white; text-align:center; font-family:sans-serif;">
+            <h1>Portfolio de Sandra Kenfack Dongmo</h1>
+            <p>Déployé avec Terraform & Ansible</p>
+            <a href="https://github.com/sandrakenfack" style="color:#38bdf8;">GitHub</a> |
+            <a href="https://linkedin.com/in/sandra-kenfack-dongmo-48b8411a6" style="color:#38bdf8;">LinkedIn</a>
+          </body>
+          </html>

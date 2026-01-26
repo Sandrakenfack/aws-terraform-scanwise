@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 1. Configuration des fournisseurs
 terraform {
   required_providers {
@@ -133,4 +134,60 @@ user_data = <<-EOF
 # 7. Sortie IP
 output "adresse_ip_publique" {
   value = aws_instance.app_server.public_ip
+=======
+# Configuration AWS
+provider "aws" {
+  region = "eu-west-3" 
+}
+
+# Réseau et Sécurité
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  tags = { Name = "VPC-Portfolio" }
+}
+
+resource "aws_subnet" "sub" {
+  vpc_id = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+  map_public_ip_on_launch = true
+}
+
+resource "aws_internet_gateway" "ig" { vpc_id = aws_vpc.main.id }
+
+resource "aws_route_table" "rt" {
+  vpc_id = aws_vpc.main.id
+  route { cidr_block = "0.0.0.0/0"; gateway_id = aws_internet_gateway.ig.id }
+}
+
+resource "aws_route_table_association" "a" {
+  subnet_id = aws_subnet.sub.id
+  route_table_id = aws_route_table.rt.id
+}
+
+# Sécurité : On ouvre SSH (22) et HTTP (80)
+resource "aws_security_group" "sg" {
+  name   = "sg_portfolio"
+  vpc_id = aws_vpc.main.id
+
+  ingress { from_port = 22; to_port = 22; protocol = "tcp"; cidr_blocks = ["0.0.0.0/0"] }
+  ingress { from_port = 80; to_port = 80; protocol = "tcp"; cidr_blocks = ["0.0.0.0/0"] }
+  egress  { from_port = 0; to_port = 0; protocol = "-1"; cidr_blocks = ["0.0.0.0/0"] }
+}
+
+# L'Instance EC2
+resource "aws_instance" "web" {
+  ami           = "ami-01d21b7be69801c2f" # Ubuntu 24.04
+  instance_type = "t3.micro"
+  subnet_id     = aws_subnet.sub.id
+  vpc_security_group_ids = [aws_security_group.sg.id]
+  key_name      = "ma-cle-ansible" # <--- Vérifie bien ce nom sur AWS !
+
+  tags = { Name = "Serveur-Sandra-Portfolio" }
+}
+
+# Affiche l'IP à la fin
+output "ip_publique" {
+  value = aws_instance.web.public_ip
+>>>>>>> 9dc7a7d (Mon Portfolio DevOps V2.0 : Infra avec Terraform et Ansible)
 }
